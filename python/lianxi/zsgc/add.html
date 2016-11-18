@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="add.py" method="post" onsubmit="return check_all()">
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" name="name" id="name" onblur="check_name()"/><span id="show_name"></span></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" name="pwd" id="pwd" onblur="check_pwd()" /><span id="show_pwd"></span></td>
+        </tr>
+        <tr>
+            <td>token:</td>
+            <td><input type="text" name="token" id="token" onblur="check_token()" /><span id="show_token"></span></td>
+        </tr>
+        <tr>
+            <td>手机号:</td>
+            <td><input type="text" name="phone" id="phone" onblur="check_phone()" /><span id="show_phone"></span></td>
+        </tr>
+        <tr>
+            <td>年龄:</td>
+            <td><input type="text" name="age" id="age" onblur="check_age()" /><span id="show_age"></span></td>
+        </tr>
+        <tr>
+            <td>邮箱:</td>
+            <td><input type="text" name="email" id="email" onblur="check_email()" /><span id="show_email"></span></td>
+        </tr>
+        <tr>
+            <td><input type="submit"/></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+<script src="jquery.js"></script>
+<script>
+    //验证用户名
+    function check_name(){
+        var name = $('#name').val();
+        if(name == ""){
+            $('#show_name').html('用户名不能为空');
+            return false;
+        }else{
+            $('#show_name').html('√');
+            return true;
+        }
+    }
+
+    //验证密码
+    function check_pwd(){
+        var pwd = $('#pwd').val();
+        if(pwd == ""){
+            $('#show_pwd').html('密码不能为空');
+            return false;
+        }else{
+            $('#show_pwd').html('√');
+            return true;
+        }
+    }
+
+    //验证token
+    function check_token(){
+        var token = $('#token').val();
+        if(token == ""){
+            $('#show_token').html('token不能为空');
+            return false;
+        }else{
+            $('#show_token').html('√');
+            return true;
+        }
+    }
+
+    //验证身份证
+    function check_age(){
+        var age = $('#age').val();
+        if(age == ""){
+            $('#show_age').html('年龄不能为空');
+            return false;
+        }else{
+            $('#show_age').html('√');
+            return true;
+        }
+    }
+
+    //验证手机号
+    function check_phone(){
+        var phone = $('#phone').val();
+        if(phone == ""){
+            $('#show_phone').html('手机号不能为空');
+            return false;
+        }else{
+            $('#show_phone').html('√');
+            return true;
+        }
+    }
+
+    //验证手机号
+    function check_email(){
+        var email = $('#email').val();
+        if(email == ""){
+            $('#show_email').html('邮箱不能为空');
+            return false;
+        }else{
+            $('#show_email').html('√');
+            return true;
+        }
+    }
+    //验证所有
+    function check_all(){
+        if(check_name() && check_pwd() && check_token()&& check_email() && check_idcard() && check_phone()){
+           return true;
+        }else{
+           return false;
+        }
+    }
+</script>
